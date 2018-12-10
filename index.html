@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>eHealth Countries Challenge</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="root">
+  	<div class="form-group">
+  		<select name="countries" id="countries" onchange="populateTable();">
+  			<option value="">Select Your Country</option>
+  		</select>
+  	</div>
+  </div>
+
+  <table border="1" cellspacing="0" id="countriesTable" cellpadding="10">
+  	<!-- <tr>
+  		<th>Name</th>
+  		<th>Capital</th>
+  		<th>Population</th>
+  		<th>Timezone</th>
+  		<th>Flag</th>
+  	</tr>
+  	<tr>
+  		<td></td>
+  		<td></td>
+  		<td></td>
+  		<td></td>
+  		<td></td>
+  	</tr> -->
+  </table>
+
+
+  <script src="scripts.js"></script>
+  <script>
+		var countries = countries;
+	function insertTR() {
+		var table = document.getElementById("countriesTable");
+		var count = 1;
+		console.log(countries)
+		var row = table.insertRow(0);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
+		cell1.innerHTML = "Name";
+		cell2.innerHTML = "Capital";
+		cell3.innerHTML = "Population";
+		cell4.innerHTML = "Timezone";
+		cell5.innerHTML = "Flag";
+		for (x in countries) {
+
+		    var row = table.insertRow(count);
+		    var cell1 = row.insertCell(0);
+		    var cell2 = row.insertCell(1);
+		    var cell3 = row.insertCell(2);
+		    var cell4 = row.insertCell(3);
+		    var cell5 = row.insertCell(4);
+		    cell1.innerHTML = countries[x][0];
+		    cell2.innerHTML = countries[x][1];
+		    cell3.innerHTML = countries[x][2];
+		    cell4.innerHTML = countries[x][3][0];
+		    cell5.innerHTML = '<img src="'+countries[x][4]+'" alt="" width="30" height="30">'
+		    // "<img src='countries[x][4]' alt=''>";
+		    count++;
+		}
+	}
+
+	function populateTable(){
+		var selectedCountry = document.getElementById("countries").value;
+		// alert(selectedCountry)
+		var timezone = getTimeZone(selectedCountry);
+		getCloseCountries(timezone);		
+	}
+
+	function getCloseCountries(timezone) {
+		// for (i = 0; i < timezone.length ; i++) {
+		//   console.log(timezone[i]);
+		// }
+		var x = timezone.substring(3);
+		if (x = "") {
+			x = 0;
+		}else{
+			x = timezone.substring(4,2);
+		}
+
+		console.log(timezone.substring(4))
+		insertTR();		
+		// return countriesCioc;
+	}
+
+	function getTimeZone(cioc){
+		var timezone = countries[cioc][3][0];
+		// console.log(timezone)
+		return timezone;
+	}
+  	
+  </script>
+</body>
+
+</html>
