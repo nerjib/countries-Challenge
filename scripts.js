@@ -17,7 +17,7 @@ request.onload = function () {
     console.log(country.name + " - " + country.timezones + " - " + country.cioc);
 
     //add country name to country array\
-    // countries[country.cioc] = [country.name, country.capital, country.population, country.timezones, country.flag];
+     countries[country.cioc] = [country.name, country.capital, country.population, country.timezones, country.flag];
     // countries.push(country.name);
     // countries.push(country.capital);
     // countries.push(country.population);
