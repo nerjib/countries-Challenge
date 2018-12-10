@@ -103,9 +103,9 @@ request.send();
 	function getCountriesCioc(value){
 		var countriesCioc = [];
 		for (x in countries) {
-			var zone = countries[x][3][0].substring(5,6);
-			if (zone == value || zone == value + 1 || zone == value - 1) {
-				countriesCioc.push(x);
+			var zone = Number(countries[x][3][0].substring(5,6));
+			if (zone == Number(value)|| zone == Number(value) + 1 || zone ==Number(value) - 1) {
+					countriesCioc.push(x);
 			}
 		}
 		return countriesCioc;
