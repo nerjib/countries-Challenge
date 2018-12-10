@@ -20,12 +20,7 @@ request.onload = function () {
 
     //add country name to country array\
     countries[country.cioc] = [country.name, country.capital, country.population, country.timezones, country.flag];
-    // countries.push(country.name);
-    // countries.push(country.capital);
-    // countries.push(country.population);
-    // countries.push(country.timezones);
-    // countries.push(country.flag);
-
+    
     var option = document.createElement("option");
     option.text = country.name;
     option.value = country.cioc;
@@ -80,18 +75,20 @@ request.send();
 
 	function populateTable(){
 				document.getElementById('note').innerHTML = 'Countries with the same time zones or close with +/- 1:00 are shaded green';
-
+//clear table before loading new data
+		 document.getElementById("countriesTable").innerHTML="";
+	//get the value of selected country
 		var selectedCountry = document.getElementById("countries").value;
 		// alert(selectedCountry)
+		
 		var timezone = getTimeZone(selectedCountry);
 		getCloseCountries(timezone);		
 	}
 
 	function getCloseCountries(timezone) {
-		// for (i = 0; i < timezone.length ; i++) {
-		//   console.log(timezone[i]);
-		// }
+		
 		var x = timezone.substring(3);
+		//check if the operation in x
 		if (x == "") {
 			x = 0;
 		}else{
