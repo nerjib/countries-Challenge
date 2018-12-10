@@ -79,6 +79,8 @@ request.send();
 
 
 	function populateTable(){
+				document.getElementById('note').innerHTML = 'Countries with the same time zones or close with +/- 1:00 are shaded green';
+
 		var selectedCountry = document.getElementById("countries").value;
 		// alert(selectedCountry)
 		var timezone = getTimeZone(selectedCountry);
