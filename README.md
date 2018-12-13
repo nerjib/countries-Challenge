@@ -1,2 +1,1 @@
-# nerjib
-n
+This is a simple web page that tkes users location as input and displays the countries that are in the same time zones or close in time zones With +/- 1:00. The system also displays the distance to the those countries from users selected country.
